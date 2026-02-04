@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffdae0; /* Romantic Pink */
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 75, 110, 0.3);
+            text-align: center;
+            border: 5px solid #ff4b6e;
+        }
+
+        h1 {
+            color: #ff4b6e;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-box {
+            position: relative;
+            height: 120px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+
+        #noBtn {
+            background-color: #ff4b6e;
+            color: white;
+            position: absolute;
+            left: 20px;
+            top: 30px;
+            z-index: 5;
+        }
+
+        #yesBtn {
+            background-color: #4CAF50; /* Green for trickery */
+            color: white;
+            position: absolute;
+            right: 20px;
+            top: 30px;
+            z-index: 10;
+        }
+
+        .decor {
+            position: absolute;
+            font-size: 2rem;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1 id="main-text">Will you be my Valentine? 🌹</h1>
+        <div class="btn-box">
+            <button id="noBtn" onclick="goToVideo()">No</button>
+            <button id="yesBtn">Yes</button>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+
+        // The "Yes" button running away logic
+        yesBtn.addEventListener('mouseover', () => {
+            const padding = 50;
+            const x = Math.random() * (window.innerWidth - yesBtn.offsetWidth - padding);
+            const y = Math.random() * (window.innerHeight - yesBtn.offsetHeight - padding);
+            
+            yesBtn.style.position = 'fixed';
+            yesBtn.style.left = `${x}px`;
+            yesBtn.style.top = `${y}px`;
+        });
+
+        // When "No" is clicked, go to the Instagram video
+        function goToVideo() {
+            window.location.href = "https://www.instagram.com/p/DSmjR7wCNiJ/";
+        }
+    </script>
+</body>
+</html>
